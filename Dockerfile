@@ -41,6 +41,7 @@ RUN apt-get -y update && apt-get install -y \
 	
 # perform installation of R dependencies
 ADD rlibs.sh .
+RUN chmod 755 ./rlibs.sh
 RUN chmod +X ./rlibs.sh
 RUN ./rlibs.sh
 
