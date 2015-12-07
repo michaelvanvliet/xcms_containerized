@@ -19,6 +19,9 @@ FROM ubuntu:14.04
 
 MAINTAINER "Michael van Vliet" m.s.vanvliet@leidenuniv.nl
 
+RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
 ## add normal user
 RUN useradd docker \
 	&& mkdir /home/docker \
@@ -31,13 +34,21 @@ WORKDIR /host
 
 # perform installation of required linux dependencies
 RUN apt-get -y update && apt-get install -y \
-	lynx \
-	r-base \
-	r-base-dev \
+	libssl-dev \
+	libxml2-dev \
+	libcurl4-openssl-dev \
+	libcurl4-gnutls-dev \
 	libnetcdf-dev \
 	netcdf-bin \
 	libglu1-mesa-dev \
-	nano
+
+# perform installation of required linux dependencies
+RUN apt-get -y update && apt-get install -y \
+	lynx \
+	r-base \
+	r-base-dev \
+	curl \
+	nano	
 	
 # perform installation of R dependencies
 ADD rlibs.sh .
