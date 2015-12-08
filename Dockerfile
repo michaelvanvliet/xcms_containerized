@@ -15,7 +15,7 @@
 #
 ####
 
-FROM ubuntu:14.04
+FROM ubuntu:14.04.3
 
 MAINTAINER "Michael van Vliet" m.s.vanvliet@leidenuniv.nl
 
@@ -37,7 +37,7 @@ RUN apt-get -y update && apt-get install -y \
 	libssl-dev \
 	libxml2-dev \
 	libcurl4-openssl-dev \
-	libcurl4-gnutls-dev \
+	#libcurl4-gnutls-dev \
 	libnetcdf-dev \
 	netcdf-bin \
 	libglu1-mesa-dev
