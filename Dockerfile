@@ -40,7 +40,7 @@ RUN apt-get -y update && apt-get install -y \
 	libcurl4-gnutls-dev \
 	libnetcdf-dev \
 	netcdf-bin \
-	libglu1-mesa-dev \
+	libglu1-mesa-dev
 
 # perform installation of required linux dependencies
 RUN apt-get -y update && apt-get install -y \
